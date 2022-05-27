@@ -1,7 +1,9 @@
 import redis from "redis"
 import fetch from "node-fetch"
 
-const client = redis.createClient();
+const client = redis.createClient({
+  url: 'redis://${REDIS_ADRESS}:${REDIS_PORT}'
+});
 
 client.on("error", function (error) {
     console.error(error);
